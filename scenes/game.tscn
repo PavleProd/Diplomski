@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhfuh8tdwwltg"]
+
+[ext_resource type="Texture2D" uid="uid://d0yd3aymb3pul" path="res://assets/ui/backdrop.png" id="1_4vro2"]
+[ext_resource type="Texture2D" uid="uid://bt488hhy8rd3l" path="res://assets/map/floor.png" id="1_gwb11"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_shgfn"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_shgfn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(107, 161)
+
+[node name="Floor" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(180, 180)
+texture = ExtResource("1_gwb11")
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(108, 161)
+texture = ExtResource("1_4vro2")
