@@ -11,7 +11,6 @@ var my_turn : bool
 
 signal turn_finished
 
-@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var movement_component: Node = $MovementComponent
 func _ready() -> void:
 	movement_component.movement_finished.connect(_on_movement_finished)
@@ -21,8 +20,9 @@ func _process(delta: float) -> void:
 		_process_movement()
 		
 	_process_animation()
-	
+
 #---------------------------------------------------------------------------------
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 func _process_movement() -> void:
 	if current_direction != Direction.NONE:
 		return
@@ -46,14 +46,14 @@ func get_new_direction() -> Direction:
 	var player_pos = GameManager.player_position
 	var mummy_pos = GameManager.mummy_position
 	
-	if player_pos.x < mummy_pos.x and is_walkable(Direction.LEFT):
-		return Direction.LEFT
-	elif player_pos.x > mummy_pos.x and is_walkable(Direction.RIGHT):
-		return Direction.RIGHT
-	elif player_pos.y < mummy_pos.y and is_walkable(Direction.UP):
+	if player_pos.y < mummy_pos.y and is_walkable(Direction.UP):
 		return Direction.UP
 	elif player_pos.y > mummy_pos.y and is_walkable(Direction.DOWN):
 		return Direction.DOWN 
+	elif player_pos.x < mummy_pos.x and is_walkable(Direction.LEFT):
+		return Direction.LEFT
+	elif player_pos.x > mummy_pos.x and is_walkable(Direction.RIGHT):
+		return Direction.RIGHT
 	
 	return Direction.NONE
 #---------------------------------------------------------------------------------
@@ -83,7 +83,7 @@ func get_new_tile_position(direction : Direction) -> Vector2i:
 func _process_animation() -> void:
 	match current_direction:
 		Direction.NONE:
-			animated_sprite.play("idle")
+			animated_sprite.stop()
 		Direction.UP:
 			animated_sprite.play("move_up")
 		Direction.DOWN:
@@ -92,6 +92,7 @@ func _process_animation() -> void:
 			animated_sprite.play("move_right")
 		Direction.LEFT:
 			animated_sprite.play("move_left")
+
 #---------------------------------------------------------------------------------
 func _on_movement_finished():
 	current_direction = Direction.NONE

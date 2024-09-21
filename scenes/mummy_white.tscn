@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://do5lh51lkrpcv"]
+[gd_scene load_steps=62 format=3 uid="uid://do5lh51lkrpcv"]
 
 [ext_resource type="Texture2D" uid="uid://bay4il86mpe7l" path="res://assets/mummy/whitelisten.png" id="1_8a10g"]
 [ext_resource type="PackedScene" uid="uid://cwoaptsya072n" path="res://scenes/movement_component.tscn" id="1_nupll"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bj6qh82oufemm" path="res://assets/mummy/whiteleft.png" id="2_p81yi"]
 [ext_resource type="Texture2D" uid="uid://cw3f1f4u23mk5" path="res://assets/mummy/whiteup.png" id="3_b34cq"]
 [ext_resource type="Texture2D" uid="uid://i1ibc1w4a2pn" path="res://assets/mummy/whitedown.png" id="3_vwg7d"]
+[ext_resource type="AudioStream" uid="uid://choa5kfbbic2v" path="res://assets/music/mummy_walk.mp3" id="8_r8xdm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_saaf4"]
 atlas = ExtResource("1_8a10g")
@@ -400,7 +401,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="mummy_white" type="Node2D"]
+[node name="MummyWhite" type="Node2D"]
 z_index = 3
 script = ExtResource("1_u57ty")
 
@@ -410,3 +411,8 @@ sprite_frames = SubResource("SpriteFrames_k77oj")
 animation = &"move_down"
 
 [node name="MovementComponent" parent="." instance=ExtResource("1_nupll")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+z_index = 3
+z_as_relative = false
+stream = ExtResource("8_r8xdm")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vhrcycc0j1dl"]
+
+[ext_resource type="Script" path="res://scripts/global_time.gd" id="1_hdxbj"]
+
+[node name="GlobalTime" type="Node"]
+script = ExtResource("1_hdxbj")

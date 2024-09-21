@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=4 uid="uid://ddu415v27f5v4"]
+
+[ext_resource type="PackedScene" uid="uid://dhfuh8tdwwltg" path="res://scenes/game.tscn" id="1_0gu1q"]
+[ext_resource type="PackedScene" uid="uid://do5lh51lkrpcv" path="res://scenes/mummy_white.tscn" id="2_0l6mb"]
+[ext_resource type="PackedScene" uid="uid://temx5glvg7v5" path="res://scenes/explorer.tscn" id="3_6rmnj"]
+[ext_resource type="Texture2D" uid="uid://dlif7s68bj1o" path="res://assets/map/stairs.png" id="4_287lh"]
+[ext_resource type="Texture2D" uid="uid://b7wks1rkpcse" path="res://assets/map/walls.png" id="5_pf1dm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4q2c6"]
+texture = ExtResource("4_287lh")
+texture_region_size = Vector2i(2, 2)
+2:0/size_in_atlas = Vector2i(26, 33)
+2:0/0 = 0
+30:0/size_in_atlas = Vector2i(26, 33)
+30:0/0 = 0
+58:0/size_in_atlas = Vector2i(26, 17)
+58:0/0 = 0
+86:0/size_in_atlas = Vector2i(26, 33)
+86:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyixk"]
+texture = ExtResource("5_pf1dm")
+texture_region_size = Vector2i(2, 2)
+0:0/size_in_atlas = Vector2i(4, 39)
+0:0/0 = 0
+6:0/size_in_atlas = Vector2i(34, 9)
+6:0/0 = 0
+42:0/size_in_atlas = Vector2i(4, 38)
+42:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hncob"]
+tile_size = Vector2i(2, 2)
+sources/0 = SubResource("TileSetAtlasSource_4q2c6")
+sources/1 = SubResource("TileSetAtlasSource_xyixk")
+
+[node name="Level2" type="Node"]
+
+[node name="Game" parent="." instance=ExtResource("1_0gu1q")]
+
+[node name="Mummy" parent="Game" instance=ExtResource("2_0l6mb")]
+position = Vector2(331, 49)
+
+[node name="Explorer" parent="Game" instance=ExtResource("3_6rmnj")]
+position = Vector2(150, 349)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = 2
+tile_map_data = PackedByteArray("AACkAO7/AAACAAAAAAAeAKEAAQAqAAAAAAAeAGQAAQAAAAAAAAAQABsAAQAGAAAAAAAuADkAAQAGAAAAAABNADkAAQAGAAAAAABnADkAAQAGAAAAAAA8AEgAAQAAAAAAAABqAFYAAQAGAAAAAAB5AGQAAQAqAAAAAAB5AIMAAQAqAAAAAABqAJEAAQAGAAAAAACFAJEAAQAGAAAAAABaAAoAAQAAAAAAAACHABoAAQAGAAAAAAA=")
+tile_set = SubResource("TileSet_hncob")

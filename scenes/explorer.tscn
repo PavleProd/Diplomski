@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://temx5glvg7v5"]
+[gd_scene load_steps=70 format=3 uid="uid://temx5glvg7v5"]
 
 [ext_resource type="Texture2D" uid="uid://bkxqus5emiar1" path="res://assets/explorer/readmap.png" id="1_3pirl"]
 [ext_resource type="Script" path="res://scripts/explorer.gd" id="1_oota3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dcjcsh2g8vkj5" path="res://assets/explorer/move_down.png" id="3_tnc0o"]
 [ext_resource type="Texture2D" uid="uid://c01oumft8apgt" path="res://assets/explorer/move_up.png" id="4_lfd6r"]
 [ext_resource type="Texture2D" uid="uid://xe4mcy1h57tw" path="res://assets/explorer/move_left.png" id="4_lv3th"]
+[ext_resource type="AudioStream" uid="uid://76cdg6h42igw" path="res://assets/music/explorer_walk.mp3" id="8_ekmqx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1xrt"]
 atlas = ExtResource("1_3pirl")
@@ -456,13 +457,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="explorer" type="Node2D"]
-z_index = 3
+[node name="Explorer" type="Node2D"]
+z_index = 2
+z_as_relative = false
 script = ExtResource("1_oota3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(-1, -29)
 sprite_frames = SubResource("SpriteFrames_2xyon")
 animation = &"idle"
 
 [node name="MovementComponent" parent="." instance=ExtResource("3_1055c")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ekmqx")
+bus = &"SFX"
