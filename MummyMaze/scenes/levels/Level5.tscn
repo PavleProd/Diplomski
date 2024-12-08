@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=4 uid="uid://e4de0q2t0gsy"]
+
+[ext_resource type="PackedScene" uid="uid://dhfuh8tdwwltg" path="res://scenes/game.tscn" id="1_6wyao"]
+[ext_resource type="PackedScene" uid="uid://dhajl20kjtun6" path="res://scenes/mummy_red.tscn" id="2_dorsa"]
+[ext_resource type="PackedScene" uid="uid://temx5glvg7v5" path="res://scenes/explorer.tscn" id="3_y1mak"]
+[ext_resource type="Texture2D" uid="uid://dlif7s68bj1o" path="res://assets/map/stairs.png" id="4_mf1cx"]
+[ext_resource type="Texture2D" uid="uid://b7wks1rkpcse" path="res://assets/map/walls.png" id="5_kfgda"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpg6q"]
+texture = ExtResource("4_mf1cx")
+texture_region_size = Vector2i(2, 2)
+86:0/size_in_atlas = Vector2i(26, 33)
+86:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_recbg"]
+texture = ExtResource("5_kfgda")
+texture_region_size = Vector2i(2, 2)
+0:0/size_in_atlas = Vector2i(4, 39)
+0:0/0 = 0
+6:0/size_in_atlas = Vector2i(34, 9)
+6:0/0 = 0
+42:0/size_in_atlas = Vector2i(4, 38)
+42:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_aqsyv"]
+tile_size = Vector2i(2, 2)
+sources/0 = SubResource("TileSetAtlasSource_tpg6q")
+sources/1 = SubResource("TileSetAtlasSource_recbg")
+
+[node name="Level5" type="Node"]
+
+[node name="Game" parent="." instance=ExtResource("1_6wyao")]
+z_index = 2
+
+[node name="Explorer" parent="Game" instance=ExtResource("3_y1mak")]
+position = Vector2(332, 230)
+
+[node name="Mummy" parent="Game" instance=ExtResource("2_dorsa")]
+position = Vector2(149, 288)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Game"]
+z_index = 1
+tile_map_data = PackedByteArray("AADy/4UAAABWAAAAAAAOADgAAQAGAAAAAAArADgAAQAGAAAAAAAtAFYAAQAGAAAAAABqADgAAQAGAAAAAACFADgAAQAGAAAAAABaAEcAAQAAAAAAAACUACcAAQAqAAAAAAB4AAoAAQAAAAAAAAB4AGYAAQAqAAAAAACWAGUAAQAqAAAAAACHAHQAAQAGAAAAAABbAIIAAQAAAAAAAACWAKEAAQAqAAAAAAB4AKEAAQAqAAAAAAA=")
+tile_set = SubResource("TileSet_aqsyv")

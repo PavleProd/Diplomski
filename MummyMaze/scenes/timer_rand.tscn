@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw1olfeim2v1f"]
+
+[ext_resource type="Script" path="res://scripts/timer_rand.gd" id="1_t7aqp"]
+
+[node name="TimeRand" type="Node"]
+script = ExtResource("1_t7aqp")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

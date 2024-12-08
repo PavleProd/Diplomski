@@ -1,0 +1,212 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhfuh8tdwwltg"]
+
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_shgfn"]
+[ext_resource type="PackedScene" uid="uid://y6f757c8t2a4" path="res://scenes/background_music.tscn" id="4_gj23d"]
+[ext_resource type="AudioStream" uid="uid://damnve3se3erj" path="res://assets/music/death.mp3" id="5_2oyg3"]
+[ext_resource type="PackedScene" uid="uid://bo8d75w6txjs6" path="res://scenes/buttons.tscn" id="7_0knss"]
+[ext_resource type="PackedScene" uid="uid://c3pf1uq6dcbf1" path="res://scenes/base_layout.tscn" id="7_bxge6"]
+[ext_resource type="Script" path="res://scripts/button_control.gd" id="8_135c7"]
+[ext_resource type="FontFile" uid="uid://brhy3bvmxeote" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_n8s62"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_shgfn")
+
+[node name="BaseLayout" parent="." instance=ExtResource("7_bxge6")]
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("4_gj23d")]
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2oyg3")
+bus = &"SFX"
+
+[node name="SidebarUI" type="Control" parent="."]
+z_index = 9
+layout_mode = 3
+anchors_preset = 0
+offset_left = 290.0
+offset_top = 41.0
+offset_right = 290.0
+offset_bottom = 41.0
+scale = Vector2(0.9, 0.9)
+script = ExtResource("8_135c7")
+
+[node name="CurrentTime" type="Label" parent="SidebarUI"]
+layout_mode = 0
+offset_left = -555.556
+offset_top = -117.778
+offset_right = -383.556
+offset_bottom = -94.7778
+theme_override_colors/font_color = Color(0.709804, 0.580392, 0.0627451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("9_n8s62")
+theme_override_font_sizes/font_size = 16
+text = "Vreme:
+"
+horizontal_alignment = 1
+
+[node name="CurrentTimeValue" type="Label" parent="SidebarUI"]
+layout_mode = 0
+offset_left = -554.444
+offset_top = -91.1111
+offset_right = -382.444
+offset_bottom = -68.1109
+theme_override_colors/font_color = Color(0.709804, 0.580392, 0.0627451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("9_n8s62")
+theme_override_font_sizes/font_size = 16
+text = "/"
+horizontal_alignment = 1
+
+[node name="RecordTime" type="Label" parent="SidebarUI"]
+layout_mode = 0
+offset_left = -554.444
+offset_top = -38.8889
+offset_right = -382.444
+offset_bottom = -15.8889
+theme_override_colors/font_color = Color(0.709804, 0.580392, 0.0627451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("9_n8s62")
+theme_override_font_sizes/font_size = 16
+text = "Rekord:
+"
+horizontal_alignment = 1
+
+[node name="RecordTimeValue" type="Label" parent="SidebarUI"]
+layout_mode = 0
+offset_left = -555.556
+offset_top = -12.2222
+offset_right = -383.556
+offset_bottom = 10.7778
+theme_override_colors/font_color = Color(0.709804, 0.580392, 0.0627451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("9_n8s62")
+theme_override_font_sizes/font_size = 16
+text = "/"
+horizontal_alignment = 1
+
+[node name="ResetLevel" parent="SidebarUI" instance=ExtResource("7_0knss")]
+layout_mode = 0
+offset_left = -548.889
+offset_top = 60.0
+offset_right = -428.889
+offset_bottom = 97.0
+scale = Vector2(1.26884, 1.2545)
+action_mode = 0
+text = "Resetuj
+Nivo"
+
+[node name="ChooseLevel" type="Label" parent="SidebarUI"]
+layout_mode = 0
+offset_left = -555.556
+offset_top = 125.556
+offset_right = -383.556
+offset_bottom = 148.556
+theme_override_colors/font_color = Color(0.709804, 0.580392, 0.0627451, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("9_n8s62")
+theme_override_font_sizes/font_size = 14
+text = "Izaberi Nivo:"
+
+[node name="Level1" parent="SidebarUI" instance=ExtResource("7_0knss")]
+custom_minimum_size = Vector2(50, 35)
+layout_mode = 0
+offset_left = -541.111
+offset_top = 148.889
+offset_right = -491.111
+offset_bottom = 183.889
+scale = Vector2(0.7, 0.7)
+action_mode = 0
+text = "1"
+
+[node name="Level2" parent="SidebarUI" instance=ExtResource("7_0knss")]
+custom_minimum_size = Vector2(50, 35)
+layout_mode = 0
+offset_left = -494.444
+offset_top = 148.889
+offset_right = -444.444
+offset_bottom = 183.889
+scale = Vector2(0.7, 0.7)
+action_mode = 0
+text = "2
+"
+
+[node name="Level3" parent="SidebarUI" instance=ExtResource("7_0knss")]
+custom_minimum_size = Vector2(50, 35)
+layout_mode = 0
+offset_left = -447.778
+offset_top = 148.889
+offset_right = -397.778
+offset_bottom = 183.889
+scale = Vector2(0.7, 0.7)
+action_mode = 0
+text = "3"
+
+[node name="Level4" parent="SidebarUI" instance=ExtResource("7_0knss")]
+custom_minimum_size = Vector2(50, 35)
+layout_mode = 0
+offset_left = -541.111
+offset_top = 182.222
+offset_right = -491.111
+offset_bottom = 217.222
+scale = Vector2(0.7, 0.7)
+action_mode = 0
+text = "4
+"
+
+[node name="Level5" parent="SidebarUI" instance=ExtResource("7_0knss")]
+custom_minimum_size = Vector2(50, 35)
+layout_mode = 0
+offset_left = -494.444
+offset_top = 182.222
+offset_right = -444.444
+offset_bottom = 217.222
+scale = Vector2(0.7, 0.7)
+action_mode = 0
+text = "5
+"
+
+[node name="Level6" parent="SidebarUI" instance=ExtResource("7_0knss")]
+custom_minimum_size = Vector2(50, 35)
+layout_mode = 0
+offset_left = -447.778
+offset_top = 182.222
+offset_right = -397.778
+offset_bottom = 217.222
+scale = Vector2(0.7, 0.7)
+action_mode = 0
+text = "6
+"
+
+[node name="Exit" parent="SidebarUI" instance=ExtResource("7_0knss")]
+layout_mode = 0
+offset_left = -552.222
+offset_top = 335.556
+offset_right = -432.222
+offset_bottom = 372.556
+scale = Vector2(1.26884, 1.2545)
+action_mode = 0
+text = "Napusti
+Igru"
+
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="pressed" from="SidebarUI/ResetLevel" to="SidebarUI" method="_on_reset_level_pressed"]
+[connection signal="pressed" from="SidebarUI/Exit" to="SidebarUI" method="_on_exit_pressed"]
