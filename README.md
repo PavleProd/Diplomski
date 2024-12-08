@@ -12,6 +12,10 @@ The project was part of the final thesis for Bachelor's Degree in Computer Scien
   - Six levels with increasing difficulty.
   - 6x6 grid layout per level, with obstacles and unique setups.
 
+## How To Play
+- Download **MummyMaze.exe** to Windows/Linux/MacOS device
+- Start the game and play :)
+
 ## Key Features
 ### Technical Highlights
 - **Entity Component System (ECS)**: 
@@ -35,10 +39,6 @@ The project was part of the final thesis for Bachelor's Degree in Computer Scien
 - **Game Progression**:
   - Start at level 1 and work up to level 6.
   - Reach the exit to progress; getting caught by a mummy resets the level.
-
-## How To Play
-- Download **MummyMaze.exe** to Windows/Linux/MacOS device
-- Start the game and play :)
 
 ## Assets and Licenses
 - **Graphical Assets**: Adapted from the [Mummy Maze project](https://github.com/osddeitf/mummy-maze/tree/master/Assets) under the MIT license.
