@@ -1,6 +1,6 @@
 # Mummy Maze - Godot Implementation
 
-This project is an implementation of a classic Mummy Maze game, developed by PopCap Games.
+This project is implementation of a classic Mummy Maze game, developed by PopCap Games.
 The goal of this project is to recreate the original game in Godot Engine, using modern techniques and design patterns.
 
 The project was part of the final thesis for Bachelor's Degree in Computer Science at Faculty of Electrical Engineering, University of Belgrade
