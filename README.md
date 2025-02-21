@@ -42,6 +42,9 @@ Level 1:
 - **Game Progression**:
   - Start at level 1 and work up to level 6.
   - Reach the exit to progress; getting caught by a mummy resets the level.
+  - Exit any time, since your progress is saved, unless you want to restart the game
+- **Challenge**:
+  - Try to beat your previous high-score in time needed to finish the level
 
 ## Assets and Licenses
 - **Graphical Assets**: Adapted from the [Mummy Maze project](https://github.com/osddeitf/mummy-maze/tree/master/Assets) under the MIT license.
