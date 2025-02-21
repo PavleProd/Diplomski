@@ -9,7 +9,7 @@ The project was part of the final thesis for Bachelor's Degree in Computer Scien
 - **Goal**: Navigate the explorer through a labyrinth to reach the exit while avoiding mummies.
 - **Challenge**: Mummies move predictably but are faster (two tiles per turn), requiring careful planning and understanding of their movement algorithms.
 - **Game Levels**:
-  - Six levels with increasing difficulty.
+  - 6 levels with increasing difficulty.
   - 6x6 grid layout per level, with obstacles and unique setups.
 
 Level 1:
